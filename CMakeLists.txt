@@ -19,7 +19,7 @@ add_library(
         src/heap_sort.h
         src/selection_sort.h
         src/empty.cpp
-)
+        src/intro_sort.h)
 
 add_executable(algoritms main.cpp src/insertion_sort.h)
 target_link_libraries(algoritms src)
@@ -30,10 +30,17 @@ add_executable(
         unit_tests
         test/bi_search_test.cpp
         test/main.cpp
-        test/bubble_sort_test.cpp test/heap_sort_test.cpp test/quick_sort_test.cpp test/selection_sort_test.cpp test/сocktail_sort_test.cpp test/insertion_sort_test.cpp)
+        test/bubble_sort_test.cpp
+        test/heap_sort_test.cpp
+        test/quick_sort_test.cpp
+        test/selection_sort_test.cpp
+        test/сocktail_sort_test.cpp
+        test/insertion_sort_test.cpp
+        test/intro_sort_test.cpp
+)
 
 target_link_libraries(unit_tests ${GTEST_BOTH_LIBRARIES})
 target_link_libraries(unit_tests src)
 
 enable_testing()
-add_test(NAME unit COMMAND unit_tests)
+add_test(NAME all_tests COMMAND unit_tests)

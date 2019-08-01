@@ -9,36 +9,34 @@
 
 
 template <class T>
-void __sort_branch(std::vector<T> &data, int32_t size, int32_t id)
-{
-    int32_t largest = id;
-    int32_t l = 2 * id + 1;
-    int32_t r = 2 * id + 2;
+void __sort_branch(std::vector<T> &data, int32_t root, int32_t end) {
+    int32_t largest = root;
+    int32_t l = 2 * root + 1;
+    int32_t r = 2 * root + 2;
 
-    if (l < size && data[l] > data[largest])
+    if (l < end && data[l] > data[largest])
         largest = l;
 
-    if (r < size && data[r] > data[largest])
+    if (r < end && data[r] > data[largest])
         largest = r;
 
-    if (largest != id) {
-        std::swap(data[id], data[largest]);
-        __sort_branch(data, size, largest);
+    if (largest != root) {
+        std::swap(data[root], data[largest]);
+        __sort_branch(data, largest, end);
     }
 }
 
 template <class T>
-void heap_sort(std::vector<T>& data)
-{
+void heap_sort(std::vector<T>& data){
     int32_t size = data.size();
 
     for (int32_t i = size / 2 - 1; i >= 0; i--) {
-        __sort_branch(data, size, i);
+        __sort_branch(data, i, size);
     }
 
     for (int32_t i = size - 1; i >= 0; i--) {
         std::swap(data[0], data[i]);
-        __sort_branch(data, i, 0);
+        __sort_branch(data, 0, i);
     }
 }
 

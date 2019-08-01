@@ -10,7 +10,7 @@
 
 
 template <class T>
-void __partSort(std::vector<T>& data, int32_t start, int32_t end) {
+void __part_sort(std::vector<T> &data, int32_t start, int32_t end) {
     if (start >= end) {
         return;
     }
@@ -40,16 +40,16 @@ void __partSort(std::vector<T>& data, int32_t start, int32_t end) {
         }
     }
 
-    __partSort(data, start, mid);
-    __partSort(data, mid + 1, end);
+    __part_sort(data, start, mid);
+    __part_sort(data, mid + 1, end);
 }
 
 
 template <class T>
-void quick_sort(std::vector<T>& vec) {
+void quick_sort(std::vector<T>& data) {
     int32_t start = 0;
-    int32_t end = vec.size() - 1;
-    __partSort(vec, start, end);
+    int32_t end = data.size() - 1;
+    __part_sort(data, start, end);
 }
 
 #endif //ALGORITMS_QUICK_SORT_H

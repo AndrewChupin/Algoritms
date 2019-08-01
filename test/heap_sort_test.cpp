@@ -60,21 +60,30 @@ TEST(HeapSortTest, SortRandomTest) {
 }
 
 TEST(HeapSortTest, SortBigTest) {
-    int32_t count = 14'748'364;
+    int32_t count = 1'748'364;
 
     std::vector<int32_t> dataValid;
     dataValid.reserve(count);
     for (int32_t i = 0; i < count; i++) {
-        dataValid[i] = i;
+        dataValid.push_back(i);
     }
 
     std::vector<int32_t> data;
     data.reserve(count);
     int32_t size = count - 1;
     for (int32_t i = size; i >= 0; i--) {
-        data[i] = i;
+        data.push_back(i);
     }
 
+    heap_sort<int32_t>(data);
+
+    ASSERT_EQ(data, dataValid);
+}
+
+TEST(HeapSortTest, SortSameAndNegativeTest) {
+    std::vector<int32_t> dataValid = { -313, -9, -9, 1, 3, 23, 23, 32, 233 };
+
+    std::vector<int32_t> data = { 3, 1, 23, -9, 233, 23, -313, 32, -9 };
     heap_sort<int32_t>(data);
 
     ASSERT_EQ(data, dataValid);

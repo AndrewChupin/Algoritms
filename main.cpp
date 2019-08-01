@@ -7,19 +7,24 @@
 #include "src/selection_sort.h"
 #include "src/heap_sort.h"
 #include "src/insertion_sort.h"
+#include "src/intro_sort.h"
 
 
 int main() {
-    std::vector<int> nums = { 4, 5, 1, 2, 6 };
-    for (int i = 0; i < nums.size(); i++) {
-        printf("%d ", nums[i]);
+    std::vector<int32_t> data = { 3, 1, 23, -9, 233, 23, -313, 32, -9 };
+
+    for (int i = 0; i < data.size(); i++) {
+       printf("%d ", data[i]);
     }
     printf("\n");
     printf("\n");
 
-    insertion_sort<int>(nums);
-    for (int i = 0; i < nums.size(); i++) {
-        printf("%d ", nums[i]);
+
+    intro_sort<int32_t>(data);
+    for (int i = 0; i < data.size(); i++) {
+       printf("%d ", data[i]);
     }
+
+
     return 0;
 }
