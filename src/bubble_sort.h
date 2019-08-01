@@ -7,7 +7,7 @@
 
 #include <vector>
 
-template <typename T>
+template <class T>
 void bubble_sort(std::vector<T>& data) {
     bool isSwapped;
     int32_t size = data.size();

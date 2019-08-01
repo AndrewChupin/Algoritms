@@ -19,7 +19,7 @@ add_library(
         src/heap_sort.h
         src/selection_sort.h
         src/empty.cpp
-        src/intro_sort.h)
+        src/intro_sort.h src/linear_search.h)
 
 add_executable(algoritms main.cpp src/insertion_sort.h)
 target_link_libraries(algoritms src)
@@ -37,7 +37,7 @@ add_executable(
         test/сocktail_sort_test.cpp
         test/insertion_sort_test.cpp
         test/intro_sort_test.cpp
-)
+        test/linear_search_test.cpp)
 
 target_link_libraries(unit_tests ${GTEST_BOTH_LIBRARIES})
 target_link_libraries(unit_tests src)

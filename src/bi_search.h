@@ -9,7 +9,7 @@
 #include <functional>
 
 
-template <typename T>
+template <class T>
 bool bi_search(std::vector<T>& data, T& value) {
     if (data.size() == 0) {
         return false;
@@ -23,9 +23,10 @@ bool bi_search(std::vector<T>& data, T& value) {
         return false;
     }
 
-    typename std::vector<T>::const_iterator v_begin = data.cbegin();
-    typename std::vector<T>::const_iterator v_end = data.cend();
     typename std::vector<T>::const_iterator v_mid;
+
+    auto v_begin = data.cbegin();
+    auto v_end = data.cend();
 
     while (std::distance(v_begin, v_end) > 0) {
         v_mid = v_begin + std::distance(v_begin, v_end) / 2;
