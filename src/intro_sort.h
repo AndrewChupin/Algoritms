@@ -54,6 +54,7 @@ void __part_quick_sort(std::vector<T>& data, int32_t start, int32_t end, int32_t
 
     if (depth == 0) {
         __heap_sort(data, start, end);
+        return;
     }
 
     int32_t i = start;

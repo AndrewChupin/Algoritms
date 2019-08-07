@@ -21,7 +21,7 @@ add_library(
         src/empty.cpp
         src/intro_sort.h src/linear_search.h)
 
-add_executable(algoritms main.cpp src/insertion_sort.h)
+add_executable(algoritms main.cpp)
 target_link_libraries(algoritms src)
 
 
